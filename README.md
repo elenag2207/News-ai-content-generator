@@ -1,1 +1,72 @@
-# bloggpt
+# News AI Content Generator
+
+Автоматический сервис для генерации уникального контента на основе актуальных новостей с помощью OpenAI и Currents API.
+
+## Описание
+
+**News AI Content Generator** — это FastAPI-приложение, которое позволяет получать свежие новости по выбранной теме, а затем генерировать структурированный и интересный текстовый материал (статью) на основе этих новостей с помощью искусственного интеллекта (OpenAI GPT-4o-mini).
+
+Сервис автоматически:
+- Получает актуальные новости по заданной теме с помощью Currents API
+- Генерирует привлекательный заголовок для статьи
+- Создаёт мета-описание с основными ключевыми словами
+- Пишет информативную, структурированную статью с анализом трендов и примерами из новостей
+
+Подходит для создания SEO-статей, блогов, новостных лент и других задач автоматизации контент-маркетинга. 
+
+## Примеры запросов
+
+- **POST** `/generate-post`  
+  **body:**  
+  ```json
+  {
+    "topic": "Artificial Intelligence"
+  }
+
+response:
+```json
+{
+  "title": "...",
+  "meta_description": "...",
+  "post_content": "..."
+}
+
+- **GET** /heartbeat
+` Проверка статуса сервиса.
+response:
+```json
+{ "status": "OK" }
+
+## Быстрый старт
+
+1. Склонируйте репозиторий:
+git clone https://github.com/yourusername/news-ai-content-generator.git
+cd news-ai-content-generator
+
+2. Установите зависимости:
+pip install -r requirements.txt
+
+3. Создайте файл .env и добавьте свои API-ключи:
+OPENAI_API_KEY=ваш_ключ_OpenAI
+CURRENTS_API_KEY=ваш_ключ_CurrentsAPI
+
+4. Запустите сервис:
+uvicorn app:app --host 0.0.0.0 --port 8000
+
+## Переменные окружения
+
+1.OPENAI_API_KEY — ключ OpenAI для генерации текста
+2. CURRENTS_API_KEY — ключ Currents API для получения новостей
+3. PORT — (необязательно) порт запуска сервиса (по умолчанию 8000)
+
+## Требования
+
+Python 3.8+
+FastAPI
+openai
+requests
+uvicorn
+
+## Лицензия
+
+MIT License
